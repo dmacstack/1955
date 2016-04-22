@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="fittyfivers_app">
+<head>
+	<meta charset="UTF-8">
+	<title>1955-ers</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
+	<script type="text/javascript">
+		var myFFApp = angular.module('fittyfivers_app', []);
+	</script>
+	<script src="js/factories/factories.js"></script>
+	<script src="js/controllers/controllers.js"></script>
+	<style type="text/css">
+	</style>
+</head>
+<body>
+<div ng-controller="FittyFiversController">
+<h1>1955 Dashboard</h1>
+<hr>
+	<div id="addfittyfiversdiv">
+		<form ng-submit="addFittyFiver()">
+			<label>Add people who were born in 1955!<br><input ng-model="newfittyfiver.name"></input></label>
+			<input type="submit"></input>
+		</form>
+	</div>
+	<div>
+		<table>
+			<thead>
+				<th>Name</th>
+				<th>Action</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="fittyfiver in fittyfivers">
+					<td ng-bind="fittyfiver.name"></td>
+					<td><button ng-click="removeFittyFiver(fittyfiver)">Delete</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</body>
+</html>
